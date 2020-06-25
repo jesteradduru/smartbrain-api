@@ -48,6 +48,7 @@ app.post("/detectImage", (req, res) => {
   image.handleApiCall(req, res);
 });
 
-app.listen(4000, () => {
-  console.log("app is running in port 4000");
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`app is running in port ${PORT}`);
 });

@@ -14,10 +14,10 @@ const db = knex({
   client: "pg",
   version: "8.2",
   connection: {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: "r0ckmygam3",
-    database: "dbsmartbrain",
+    connectString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
   },
 });
 
@@ -26,7 +26,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.json("it is working hahahahahahah");
+  res.json("it is working");
 });
 
 app.post("/signin", (req, res) => {
